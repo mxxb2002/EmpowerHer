@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Register - Women's Safety Network</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles for glassmorphism effect */
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-pink-50 text-gray-800 flex items-center justify-center h-screen">
+    <div class="glass-effect rounded-lg overflow-hidden shadow-lg max-w-lg w-full mx-auto p-8 space-y-8">
+        <h2 class="text-3xl font-bold text-center text-pink-600">Welcome Back!</h2>
+        <form action="/login" method="POST" class="space-y-6">
+            <div>
+                <label for="email" class="text-sm font-medium text-gray-700">Email</label>
+                <input type="email" id="email" name="email" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-pink-500 focus:border-pink-500" required>
+            </div>
+            <div>
+                <label for="password" class="text-sm font-medium text-gray-700">Password</label>
+                <input type="password" id="password" name="password" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-pink-500 focus:border-pink-500" required>
+            </div>
+            <div class="flex items-center justify-between">
+                <a href="/index" class="text-sm text-pink-600 hover:underline">Return to Home</a>
+                <button type="submit" class="py-2 px-4 bg-pink-500 text-white font-semibold rounded-lg shadow-md hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-opacity-75">Login</button>
+            </div>
+        </form>
+        <div class="text-center">
+            <p class="text-sm">Don't have an account? <a href="/register" class="text-pink-600 hover:underline">Register</a></p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url('background\ image.png') no-repeat center center fixed;
+    background-size: cover;
+  }
+  
+  header {
+    background-color: #F7CE10; /* yellow shade */
+   /*padding: 0px 0;*/
+    width: 100%;
+    top: 0;
+    text-align: center;
+    color: white;
+    position: fixed;
+  }
+  nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff; 
+}
+  
+  h1 {
+    margin: 0;
+  }
+  
+  .contact-section {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 100px auto 30px; /* Increased top margin, auto for left and right, and 30px bottom margin */
+    padding: 20px;
+    border-radius: 8px;
+    
+    
+    
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .form-group textarea {
+    height: 150px;
+  }
+  
+  button {
+    background-color: #F7CE10; /* Lighter pink shade */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #F7CE10;
+  }
+  
+  footer {
+    background-color: #F7CE10;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  
