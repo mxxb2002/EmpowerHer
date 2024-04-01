@@ -56,12 +56,12 @@ footer {
 }
 body {
   font-family: Arial, sans-serif;
-  background: url('/path/to/your/background-image.jpg') no-repeat center center fixed;
+  background: url('background\ image.png') no-repeat center center fixed;
   background-size: cover;
 }
 
 header {
-  background-color: #041680ff; /* Pink shade */
+  background-color: #041680ff; /* blue shade */
   padding: 10px 0;
   text-align: center;
   color: white;
@@ -71,35 +71,7 @@ h1 {
   margin: 0;
 }
 
-.contact-section {
-  background-color: rgba(255, 255, 255, 0.8);
-  max-width: 600px;
-  margin: 30px auto;
-  padding: 20px;
-  border-radius: 8px;
-}
 
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-}
-
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.form-group textarea {
-  height: 150px;
-}
 
 button {
   background-color: #ff61ac; /* Lighter pink shade */
@@ -126,5 +98,4 @@ footer {
 }
 
 
-/* Add responsive design and other styles as needed */
 

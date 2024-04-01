@@ -5,7 +5,9 @@ const bcrypt = require('bcrypt');
 const path = require('path');
 const ejs = require('ejs');
 const fs = require('fs');
-const { connectToDatabase } = require('./database');
+const { MongoClient, ObjectId } = require('mongodb');
+const { connectToDatabase, getDb } = require('./database');
+
 
 const app = express();
 
@@ -62,7 +64,6 @@ app.get('/dashboard', (req, res) => {
         res.redirect('/login'); // Redirect to login if not authenticated
     }
 });
-// route handler for POST requests to /submit-contact
 
 // Define routes
 app.get('/', (req, res) => {
@@ -85,15 +86,50 @@ app.get('/resources', (req, res) => {
 app.get('/contact', (req, res) => {
     res.render('contact');
 });
+// route handler for POST requests to /submit-contact
 
-app.post('/register', async (req, res) => {
-   res.render('register');
-});
-
-app.get('/login', (req, res) => {
-    res.render('login');
-});
-
+// register page route
+app.get('/register', (req, res) => {
+    res.render('register');
+  });
+  
+  app.post('/register', async (req, res) => {
+    const { name, email, dob, password, confirmPassword } = req.body;
+  
+    if (password !== confirmPassword) {
+      return res.status(400).send('Passwords do not match.');
+    }
+  
+    try {
+      // Connect to the database and get the db object
+      await connectToDatabase(process.env.MONGODB_URI);
+      const db = getDb();
+  
+      // Hash the password
+      const hashedPassword = await bcrypt.hash(password, 10);
+  
+      // Insert the new user into the database
+      const result = await db.collection('users').insertOne({
+        name,
+        email,
+        dob,
+        password: hashedPassword,
+      });
+  
+      console.log(result); // Output the result to the console for debugging
+  
+      // Redirect to login upon successful registration
+      res.redirect('/login');
+    } catch (error) {
+      if (error.code === 11000) {
+        // Handle duplicate key error
+        return res.status(400).send('Email already in use.');
+      }
+      console.error('Registration error:', error);
+      res.status(500).send('An error occurred during registration.');
+    }
+  });
+  
 app.post('/api', (req, res) => {
     res.render('api');
 });
